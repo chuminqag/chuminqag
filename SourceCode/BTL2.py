@@ -8,7 +8,6 @@ df = pd.read_csv('results.csv')
 
 for col in df.columns:
     if df[col].dtype == object:
-        # Loại bỏ ký tự '%' và dấu phẩy, thay 'N/a' hoặc 'nan' thành None
         s = (df[col].astype(str)
                .str.replace('%', '', regex=False)
                .str.replace(',', '', regex=False)
@@ -36,7 +35,6 @@ with open('top_3.txt', 'w', encoding='utf-8') as f:
 
 records = []
 for stat in stats:
-    # Toàn giải
     median_all = df[stat].median()
     mean_all   = df[stat].mean()
     std_all    = df[stat].std()
